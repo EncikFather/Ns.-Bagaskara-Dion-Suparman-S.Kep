@@ -87,7 +87,19 @@ body.editing .ed{outline:1px dashed rgba(61,245,200,.55);outline-offset:2px;min-
 .chip{display:inline-flex;gap:6px;align-items:center;font:inherit;font-size:.82rem;background:rgba(61,245,200,.12);color:var(--cy);border:1px solid var(--bd);border-radius:999px;padding:1px 12px;margin:6px 6px 0 0;cursor:pointer;max-width:100%}
 .chip svg{width:13px;height:13px;flex:none}
 .pc{gap:6px;align-items:center;font-size:.85rem}.pc input[type=number]{width:60px;background:#0A1A24;color:var(--tx);border:1px solid var(--bd);border-radius:6px;font:inherit;padding:1px 6px}.pc input[type=range]{width:110px;accent-color:#3DF5C8}
-.tb{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;flex-wrap:wrap;justify-content:center;align-items:center;background:rgba(10,26,36,.92);border:1px solid var(--bd);backdrop-filter:blur(14px);padding:4px 10px 8px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.5);z-index:20}
+.mbtn{position:fixed;top:10px;right:12px;z-index:25;width:40px;height:40px;display:grid;place-items:center;padding:0;border-radius:50%;border:1px solid var(--bd);background:rgba(10,26,36,.92);color:var(--cy);cursor:pointer;backdrop-filter:blur(14px);box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.mbtn svg{width:19px;height:19px}
+.mbtn:hover{background:var(--cy);color:var(--bg)}
+.mbtn:focus-visible,.fab:focus-visible{outline:3px solid var(--am)}
+body.editing .mbtn::after{content:"";position:absolute;top:3px;right:3px;width:9px;height:9px;border-radius:50%;background:var(--am)}
+.mn{position:fixed;top:58px;right:12px;z-index:25;display:flex;flex-direction:column;gap:2px;min-width:170px;padding:8px 10px 12px;background:rgba(10,26,36,.96);border:1px solid var(--bd);border-radius:16px;backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+.mn.open{opacity:1;visibility:visible;transform:none}
+.mn .btn{width:100%;justify-content:center;margin:6px 0 0;padding:5px 12px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:20;display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.88rem;font-weight:500;padding:10px 16px;border-radius:999px;border:1px solid var(--cy);background:rgba(10,26,36,.92);color:var(--cy);cursor:pointer;backdrop-filter:blur(14px);box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.fab svg{width:18px;height:18px;flex:none}
+.fab:hover{background:var(--cy);color:var(--bg)}
+.nv .w{padding-right:64px}
+@media(max-width:480px){.fab span{display:none}.fab{padding:12px}}
 .hint{display:none;background:var(--am);color:#2A1D00;margin:0;padding:8px 20px;font-size:.88rem;text-align:center}
 .only-owner,.only-edit{display:none!important}
 body.owner .only-owner{display:inline-flex!important}
@@ -112,21 +124,22 @@ body.editing .only-view{display:none!important}
 @media(min-width:821px){.bento{grid-template-columns:repeat(12,1fr)}.c8{grid-column:span 8}.c4{grid-column:span 4}.c6{grid-column:span 6}.kh{grid-template-columns:5fr 7fr}}
 @media(max-width:820px){.hg{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
-@media print{:root{--bg:#fff;--glass:#fff;--bd:#cfd8d6;--tx:#10222c;--mut:#4a5e66;--cy:#0f7a66;--vi:#5a4fcf}body{background:#fff}body::before,.nv,.tb,.hint,.wv,.only-edit,.chip,#modal,.pf::before,.scr::after{display:none!important}.cd{backdrop-filter:none;break-inside:avoid}.fill{box-shadow:none}.rl{fill:#10222c}}
+@media print{:root{--bg:#fff;--glass:#fff;--bd:#cfd8d6;--tx:#10222c;--mut:#4a5e66;--cy:#0f7a66;--vi:#5a4fcf}body{background:#fff}body::before,.nv,.mbtn,.mn,.fab,.hint,.wv,.only-edit,.chip,#modal,.pf::before,.scr::after{display:none!important}.cd{backdrop-filter:none;break-inside:avoid}.fill{box-shadow:none}.rl{fill:#10222c}}
 </style>
 </head>
 <body>
 <p class="hint">Mode edit: klik teks untuk mengubah. Perubahan tersimpan di browser ini. Klik “Unduh HTML”, lalu ganti index.html di repo GitHub agar tampil untuk semua pengunjung.</p>
 <div id="app"></div>
-<nav class="tb" aria-label="Alat CV">
+<button class="mbtn" id="mbtn" data-act="menu" aria-label="Menu pemilik" aria-expanded="false" aria-controls="mn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></button>
+<nav class="mn" id="mn" aria-label="Menu pemilik">
+<button class="btn only-guest" data-act="login">Masuk pemilik</button>
 <button class="btn only-owner only-view" data-act="edit">Edit CV</button>
 <button class="btn only-edit" data-act="done">Selesai edit</button>
 <button class="btn only-edit" data-act="dl">Unduh HTML</button>
 <button class="btn only-edit" data-act="reset">Reset draf</button>
-<button class="btn" data-act="print">Cetak / PDF</button>
-<button class="btn only-guest" data-act="login">Masuk pemilik</button>
 <button class="btn only-owner" data-act="logout">Keluar</button>
 </nav>
+<button class="fab" data-act="print" aria-label="Cetak atau simpan sebagai PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="9" rx="2"/><path d="M7 14h10v7H7z"/></svg><span>Cetak / PDF</span></button>
 <div id="modal" hidden></div>
 <div id="toast" role="status"></div>
 
@@ -255,7 +268,7 @@ r.querySelectorAll('[data-pct]').forEach(n=>{if(n!==t)n.value=v??(n.type==='rang
 const pv=r.querySelector('.pv');if(pv)pv.textContent=v==null?'':v+'%';const fl=r.querySelector('.fill');if(fl)fl.style.width=(v||0)+'%';redraw();save();return}
 if(t.classList.contains('ed')){set(t.dataset.p,t.textContent);save()}});
 document.addEventListener('focusout',e=>{const t=e.target;if(t.classList&&t.classList.contains('ed')&&document.body.classList.contains('editing')){const v=t.textContent.trim();set(t.dataset.p,v);t.textContent=v;save()}});
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('ed')){e.preventDefault();e.target.blur()}if(e.key==='Escape')closeDoc()});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('ed')){e.preventDefault();e.target.blur()}if(e.key==='Escape'){closeDoc();$('mn').classList.remove('open')}});
 document.addEventListener('paste',e=>{if(e.target.classList&&e.target.classList.contains('ed')){e.preventDefault();document.execCommand('insertText',false,e.clipboardData.getData('text').replace(/\s*\n\s*/g,' '))}});
 
 async function openDoc(f){const u=URL.createObjectURL(await (await fetch(f.data)).blob()),m=$('modal');
@@ -268,8 +281,8 @@ const open='<scr'+'ipt id="cv-data" type="application/json">',a=TEMPLATE.indexOf
 const u=URL.createObjectURL(new Blob([TEMPLATE.slice(0,a)+json+TEMPLATE.slice(b)],{type:'text/html'})),l=document.createElement('a');
 l.href=u;l.download='index.html';l.click();setTimeout(()=>URL.revokeObjectURL(u),2000);toast('index.html terunduh. Unggah ke repo GitHub untuk menayangkan.')}
 
-document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act,p=b.dataset.p,ed=document.body.classList.contains('editing');
-if(a==='login')loginForm();else if(a==='logout')logout();
+document.addEventListener('click',e=>{const mn=$('mn');if(!e.target.closest('#mn,#mbtn'))mn.classList.remove('open');const b=e.target.closest('[data-act]');if(!b)return;if(b.closest('#mn'))mn.classList.remove('open');const a=b.dataset.act,p=b.dataset.p,ed=document.body.classList.contains('editing');
+if(a==='menu'){const o=mn.classList.toggle('open');b.setAttribute('aria-expanded',o)}else if(a==='login')loginForm();else if(a==='logout')logout();
 else if(a==='edit')setEdit(true);else if(a==='done')setEdit(false);else if(a==='print')print();else if(a==='dl')dl();else if(a==='close')closeDoc();
 else if(a==='view')openDoc(get(p));
 else if(!ed)return;
