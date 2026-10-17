@@ -201,8 +201,8 @@ let st;function save(){clearTimeout(st);st=setTimeout(()=>{try{localStorage.setI
 let tt;function toast(m){const t=$('toast');t.textContent=m;clearTimeout(tt);tt=setTimeout(()=>t.textContent='',6000)}
 
 /* Akses pemilik: login manual username + password (hash SHA-256 dari "username:password") */
-const CRED_HASH='';
-const sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,'0')).join('');
+const USERNAME='bagaskara';
+const PASSWORD='GantiPassword#2026';
 let fails=0;
 
 function grant(){
@@ -223,14 +223,11 @@ m.innerHTML=`<form class="mb lf" id="lf"><h2>Masuk pemilik</h2>
 m.hidden=false;$('lu').focus();
 $('lf').onsubmit=async e=>{
  e.preventDefault();
- if(!CRED_HASH){$('le').textContent='Login belum aktif: isi CRED_HASH di index.html.';return}
- if(!(window.crypto&&crypto.subtle)){$('le').textContent='Login butuh HTTPS atau localhost.';return}
- const h=await sha($('lu').value.trim()+':'+$('lp').value);
- if(h===CRED_HASH){sessionStorage.setItem('cv-cred',h);closeDoc();grant();toast('Berhasil masuk. Klik "Edit CV".')}
+ if($('lu').value.trim()===USERNAME&&$('lp').value===PASSWORD){sessionStorage.setItem('cv-cred','1');closeDoc();grant();toast('Berhasil masuk. Klik "Edit CV".')}
  else{fails++;$('le').textContent='Username atau password salah.';$('lp').value='';
   await new Promise(r=>setTimeout(r,Math.min(fails,5)*1000))}}}
 
-addEventListener('load',()=>{if(CRED_HASH&&sessionStorage.getItem('cv-cred')===CRED_HASH)grant()});
+addEventListener('load',()=>{if(sessionStorage.getItem('cv-cred')==='1')grant()});
 
 async function imgData(file,max,crop){
 let bm;try{bm=await createImageBitmap(file)}catch(e){throw Error('Format gambar tidak didukung. Gunakan JPG atau PNG.')}
