@@ -340,7 +340,7 @@ function spawn(c,first){
 function size(){
  const r=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
  cv.width=W*r;cv.height=H*r;ctx.setTransform(r,0,0,r,0,0);
- const n=Math.max(100,Math.min(10,Math.round(W*H/90000)));
+ const n=Math.max(10,Math.min(10,Math.round(W*H/90000)));
  cs=Array.from({length:n},()=>{const c={};spawn(c,true);return c})}
 function step(c,dt){
  if(c.wait>0){c.wait-=dt;return}
