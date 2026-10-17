@@ -87,18 +87,17 @@ body.editing .ed{outline:1px dashed rgba(61,245,200,.55);outline-offset:2px;min-
 .chip{display:inline-flex;gap:6px;align-items:center;font:inherit;font-size:.82rem;background:rgba(61,245,200,.12);color:var(--cy);border:1px solid var(--bd);border-radius:999px;padding:1px 12px;margin:6px 6px 0 0;cursor:pointer;max-width:100%}
 .chip svg{width:13px;height:13px;flex:none}
 .pc{gap:6px;align-items:center;font-size:.85rem}.pc input[type=number]{width:60px;background:#0A1A24;color:var(--tx);border:1px solid var(--bd);border-radius:6px;font:inherit;padding:1px 6px}.pc input[type=range]{width:110px;accent-color:#3DF5C8}
-.mbtn{position:fixed;top:10px;right:12px;z-index:25;width:40px;height:40px;display:grid;place-items:center;padding:0;border-radius:50%;border:1px solid var(--bd);background:rgba(10,26,36,.92);color:var(--cy);cursor:pointer;backdrop-filter:blur(14px);box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.mbtn{position:absolute;top:10px;right:12px;z-index:25;width:40px;height:40px;display:grid;place-items:center;padding:0;border-radius:50%;border:1px solid var(--bd);background:rgba(10,26,36,.92);color:var(--cy);cursor:pointer;backdrop-filter:blur(14px);box-shadow:0 4px 16px rgba(0,0,0,.4)}
 .mbtn svg{width:19px;height:19px}
 .mbtn:hover{background:var(--cy);color:var(--bg)}
 .mbtn:focus-visible,.fab:focus-visible{outline:3px solid var(--am)}
 body.editing .mbtn::after{content:"";position:absolute;top:3px;right:3px;width:9px;height:9px;border-radius:50%;background:var(--am)}
-.mn{position:fixed;top:58px;right:12px;z-index:25;display:flex;flex-direction:column;gap:2px;min-width:170px;padding:8px 10px 12px;background:rgba(10,26,36,.96);border:1px solid var(--bd);border-radius:16px;backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+.mn{position:absolute;top:58px;right:12px;z-index:25;display:flex;flex-direction:column;gap:2px;min-width:170px;padding:8px 10px 12px;background:rgba(10,26,36,.96);border:1px solid var(--bd);border-radius:16px;backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
 .mn.open{opacity:1;visibility:visible;transform:none}
 .mn .btn{width:100%;justify-content:center;margin:6px 0 0;padding:5px 12px}
 .fab{position:fixed;right:16px;bottom:16px;z-index:20;display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.88rem;font-weight:500;padding:10px 16px;border-radius:999px;border:1px solid var(--cy);background:rgba(10,26,36,.92);color:var(--cy);cursor:pointer;backdrop-filter:blur(14px);box-shadow:0 6px 24px rgba(0,0,0,.5)}
 .fab svg{width:18px;height:18px;flex:none}
 .fab:hover{background:var(--cy);color:var(--bg)}
-.nv .w{padding-right:64px}
 @media(max-width:480px){.fab span{display:none}.fab{padding:12px}}
 .hint{display:none;background:var(--am);color:#2A1D00;margin:0;padding:8px 20px;font-size:.88rem;text-align:center}
 .only-owner,.only-edit{display:none!important}
@@ -121,13 +120,28 @@ body.editing .only-view{display:none!important}
 .lf input{font:inherit;color:var(--tx);background:#050E15;border:1px solid var(--bd);border-radius:8px;padding:8px 10px;width:100%}
 .lf input:focus{outline:2px solid var(--cy)}
 .le{color:#ffb4bc;margin:0;min-height:1.4em;font-size:.85rem}
+.lk{color:var(--cy);text-decoration:underline;text-underline-offset:3px;font-weight:500}
+.lk::after{content:" \2197";font-size:.85em}
+.lks{margin-top:6px}
+.lr{display:flex;flex-wrap:wrap;gap:2px 10px;align-items:center;margin-top:4px}
+.hbg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.pg:has(figure:only-child){grid-template-columns:1fr}
+.sd{position:relative;margin:0;overflow:hidden;border-radius:12px}
+.sd img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:zoom-in}
+.sd:not(.in){clip-path:inset(0 0 100% 0)}
+.sd.in{animation:sdn .8s ease-out both}
+@keyframes sdn{from{clip-path:inset(0 0 100% 0);transform:translateY(-24px);opacity:0}to{clip-path:inset(0);transform:none;opacity:1}}
+.sd .x{position:absolute;top:6px;right:6px;margin:0}
+#tron{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(#000,transparent 75%);mask-image:linear-gradient(#000,transparent 75%)}
 @media(min-width:821px){.bento{grid-template-columns:repeat(12,1fr)}.c8{grid-column:span 8}.c4{grid-column:span 4}.c6{grid-column:span 6}.kh{grid-template-columns:5fr 7fr}}
 @media(max-width:820px){.hg{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
-@media print{:root{--bg:#fff;--glass:#fff;--bd:#cfd8d6;--tx:#10222c;--mut:#4a5e66;--cy:#0f7a66;--vi:#5a4fcf}body{background:#fff}body::before,.nv,.mbtn,.mn,.fab,.hint,.wv,.only-edit,.chip,#modal,.pf::before,.scr::after{display:none!important}.cd{backdrop-filter:none;break-inside:avoid}.fill{box-shadow:none}.rl{fill:#10222c}}
+@media print{:root{--bg:#fff;--glass:#fff;--bd:#cfd8d6;--tx:#10222c;--mut:#4a5e66;--cy:#0f7a66;--vi:#5a4fcf}body{background:#fff}.sd{clip-path:none!important}#tron,body::before,.nv,.mbtn,.mn,.fab,.hint,.wv,.only-edit,.chip,#modal,.pf::before,.scr::after{display:none!important}.cd{backdrop-filter:none;break-inside:avoid}.fill{box-shadow:none}.rl{fill:#10222c}}
 </style>
 </head>
 <body>
+<canvas id="tron" aria-hidden="true"></canvas>
 <p class="hint">Mode edit: klik teks untuk mengubah. Perubahan tersimpan di browser ini. Klik “Unduh HTML”, lalu ganti index.html di repo GitHub agar tampil untuk semua pengunjung.</p>
 <div id="app"></div>
 <button class="mbtn" id="mbtn" data-act="menu" aria-label="Menu pemilik" aria-expanded="false" aria-controls="mn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></button>
@@ -143,7 +157,7 @@ body.editing .only-view{display:none!important}
 <div id="modal" hidden></div>
 <div id="toast" role="status"></div>
 
-<script id="cv-data" type="application/json">{"version":1,"profile":{"role":"Curriculum Vitae","name":"Ns. Bagaskara Dion Suparman, S.Kep","ttl":"Jember, 22 April 1995","dom":"Perum. Grand Puri Bunga Nirwana Blok California No C66, Sumbersari Jember","lulus":"FIKES Universitas Muhammadiyah Jember","photo":""},"about":"Lulusan Fakultas Ilmu Kesehatan Universitas Muhammadiyah Jember yang berpengalaman dalam praktik keperawatan dan pendidikan keperawatan. Berbekal dunia pendidikan, saya mampu mengingat dengan baik, gigih, peduli, teliti, serta memiliki kemampuan kerja sama yang baik.","phone":"081334133381","email":"bagaskaradion123@gmail.com","leg":[{"label":"STR Perawat","no":"","valid":"","file":null},{"label":"SIPP","no":"","valid":"","file":null}],"komp":["Perawat Anestesi","Perawat Penyakit Dalam","Perawat Bedah"],"soft":["Teliti","Gigih","Peduli (caring)","Kerja sama tim"],"bhs":["Indonesia (aktif)","Jawa (aktif)","Madura (aktif)","Inggris (aktif)","Jepang (aktif)"],"exp":[{"org":"SMK 4 Pancasila Ambulu, Jember","per":"2019 – 2022","items":["Guru Keperawatan (anatomi fisiologi, KDM, Komunikasi keperawatan, Konsep dasar keperawatan)","Guru Bahasa Jepang","Wali Kelas Keperawatan","Pembimbing klinik siswa praktik kerja internship.","Kepala Laboratorium","Pembimbing ekskul Bahasa Jepang","Tim Konten creator sekolah","Guru pendamping LKS (Lomba Kompetensi Siswa) tingkat Wilayah Kerja 2 Jawa Timur tahun 2021"]},{"org":"SMK 2 Pancasila Ambulu, Jember","per":"2021 – 2022","items":["Guru Kursus Bahasa Jepang"]},{"org":"RSU Universitas Muhammadiyah Jember","per":"2023 – 2026","items":["Ketua Tim Mutu (Komite Mutu)","Kepala Ruang Interna","Kepala Ruang Bedah"]}],"edu":[{"inst":"Fakultas Ilmu Kesehatan, Universitas Muhammadiyah Jember","name":"Program studi Ilmu Keperawatan","per":"2013 – 2017","file":null},{"inst":"Fakultas Ilmu Kesehatan, Universitas Muhammadiyah Jember","name":"Profesi Keperawatan (Ners)","per":"2017 – 2018","file":null}],"tr":[{"title":"Bahasa Jepang","org":"UPT BLKI Jember","year":"2019","file":null},{"title":"BTCLS & BLS","org":"EM 118 Surabaya","year":"2019","file":null},{"title":"PMKP","org":"LIPA LARSI","year":"2023","file":null},{"title":"Pelatihan Keperawatan anestesi","org":"HIPANI","year":"2026 (sampai Oktober 2026)","file":null}],"kp":{"tipe":"Penjaga yang tenang, teliti, dan peduli","desc":"Bekerja dengan teliti saat pasien paling rentan, gigih menyelesaikan tugas, dan menenangkan pasien dengan sikap peduli.","tags":["Teliti","Gigih","Peduli","Kerja sama","Tenang"],"note":"Persentase pada grafik hanya ilustrasi, bukan hasil tes psikologi resmi.","items":[{"label":"Ketelitian","pct":95,"desc":"Memeriksa obat, dosis, dan alat berulang kali sebelum tindakan.","quote":"Menjalankan checklist keselamatan pasien pada setiap tindakan."},{"label":"Kegigihan","pct":92,"desc":"Tidak mudah menyerah menghadapi shift panjang dan kasus sulit.","quote":"Menyelesaikan tugas klinis hingga tuntas dengan standar yang konsisten."},{"label":"Daya ingat & belajar","pct":90,"desc":"Cepat mengingat prosedur, protokol, dan riwayat pasien.","quote":"Menguasai SOP dan cepat beradaptasi dengan prosedur baru."},{"label":"Kepedulian (caring)","pct":90,"desc":"Menenangkan pasien yang cemas dan memperhatikan kenyamanannya.","quote":"Mendampingi pasien hingga merasa aman dan nyaman."},{"label":"Kerja sama tim","pct":88,"desc":"Berkomunikasi singkat dan jelas dengan dokter dan tim bedah.","quote":"Melakukan serah terima pasien dengan format SBAR."},{"label":"Ketenangan","pct":90,"desc":"Tetap fokus ketika kondisi pasien berubah cepat.","quote":"Terlibat dalam penanganan kegawatan sesuai protokol."},{"label":"Integritas","pct":null,"desc":"Jujur melaporkan kesalahan dan nyaris-insiden demi pembelajaran tim.","quote":""},{"label":"Ketahanan","pct":null,"desc":"Sanggup berdiri lama, jaga malam, dan bekerja berjam-jam.","quote":""},{"label":"Terus belajar","pct":null,"desc":"Mengikuti pelatihan dan perkembangan ilmu keperawatan serta anestesi.","quote":""}]}}</script>
+<script id="cv-data" type="application/json">{"version":1,"profile":{"role":"Curriculum Vitae","name":"Ns. Bagaskara Dion Suparman, S.Kep","ttl":"Jember, 22 April 1995","dom":"Perum. Grand Puri Bunga Nirwana Blok California No C66, Sumbersari Jember","lulus":"FIKES Universitas Muhammadiyah Jember","photo":""},"about":"Lulusan Fakultas Ilmu Kesehatan Universitas Muhammadiyah Jember yang berpengalaman dalam praktik keperawatan dan pendidikan keperawatan. Berbekal dunia pendidikan, saya mampu mengingat dengan baik, gigih, peduli, teliti, serta memiliki kemampuan kerja sama yang baik.","phone":"081334133381","email":"bagaskaradion123@gmail.com","leg":[{"label":"STR Perawat","no":"","valid":"","file":null},{"label":"SIPP","no":"","valid":"","file":null}],"komp":["Perawat Anestesi","Perawat Penyakit Dalam","Perawat Bedah"],"soft":["Teliti","Gigih","Peduli (caring)","Kerja sama tim"],"bhs":["Indonesia (aktif)","Jawa (aktif)","Madura (aktif)","Inggris (aktif)","Jepang (aktif)"],"exp":[{"org":"SMK 4 Pancasila Ambulu, Jember","per":"2019 – 2022","items":["Guru Keperawatan (anatomi fisiologi, KDM, Komunikasi keperawatan, Konsep dasar keperawatan)","Guru Bahasa Jepang","Wali Kelas Keperawatan","Pembimbing klinik siswa praktik kerja internship.","Kepala Laboratorium","Pembimbing ekskul Bahasa Jepang","Tim Konten creator sekolah","Guru pendamping LKS (Lomba Kompetensi Siswa) tingkat Wilayah Kerja 2 Jawa Timur tahun 2021"]},{"org":"SMK 2 Pancasila Ambulu, Jember","per":"2021 – 2022","items":["Guru Kursus Bahasa Jepang"]},{"org":"RSU Universitas Muhammadiyah Jember","per":"2023 – 2026","items":["Ketua Tim Mutu (Komite Mutu)","Kepala Ruang Interna","Kepala Ruang Bedah"]}],"edu":[{"inst":"Fakultas Ilmu Kesehatan, Universitas Muhammadiyah Jember","name":"Program studi Ilmu Keperawatan","per":"2013 – 2017","file":null},{"inst":"Fakultas Ilmu Kesehatan, Universitas Muhammadiyah Jember","name":"Profesi Keperawatan (Ners)","per":"2017 – 2018","file":null}],"tr":[{"title":"Bahasa Jepang","org":"UPT BLKI Jember","year":"2019","file":null},{"title":"BTCLS & BLS","org":"EM 118 Surabaya","year":"2019","file":null},{"title":"PMKP","org":"LIPA LARSI","year":"2023","file":null},{"title":"Pelatihan Keperawatan anestesi","org":"HIPANI","year":"2026 (sampai Oktober 2026)","file":null}],"kp":{"tipe":"Penjaga yang tenang, teliti, dan peduli","desc":"Bekerja dengan teliti saat pasien paling rentan, gigih menyelesaikan tugas, dan menenangkan pasien dengan sikap peduli.","tags":["Teliti","Gigih","Peduli","Kerja sama","Tenang"],"note":"Persentase pada grafik hanya ilustrasi, bukan hasil tes psikologi resmi.","items":[{"label":"Ketelitian","pct":95,"desc":"Memeriksa obat, dosis, dan alat berulang kali sebelum tindakan.","quote":"Menjalankan checklist keselamatan pasien pada setiap tindakan."},{"label":"Kegigihan","pct":92,"desc":"Tidak mudah menyerah menghadapi shift panjang dan kasus sulit.","quote":"Menyelesaikan tugas klinis hingga tuntas dengan standar yang konsisten."},{"label":"Daya ingat & belajar","pct":90,"desc":"Cepat mengingat prosedur, protokol, dan riwayat pasien.","quote":"Menguasai SOP dan cepat beradaptasi dengan prosedur baru."},{"label":"Kepedulian (caring)","pct":90,"desc":"Menenangkan pasien yang cemas dan memperhatikan kenyamanannya.","quote":"Mendampingi pasien hingga merasa aman dan nyaman."},{"label":"Kerja sama tim","pct":88,"desc":"Berkomunikasi singkat dan jelas dengan dokter dan tim bedah.","quote":"Melakukan serah terima pasien dengan format SBAR."},{"label":"Ketenangan","pct":90,"desc":"Tetap fokus ketika kondisi pasien berubah cepat.","quote":"Terlibat dalam penanganan kegawatan sesuai protokol."},{"label":"Integritas","pct":null,"desc":"Jujur melaporkan kesalahan dan nyaris-insiden demi pembelajaran tim.","quote":""},{"label":"Ketahanan","pct":null,"desc":"Sanggup berdiri lama, jaga malam, dan bekerja berjam-jam.","quote":""},{"label":"Terus belajar","pct":null,"desc":"Mengikuti pelatihan dan perkembangan ilmu keperawatan serta anestesi.","quote":""}]},"sk":[{"label":"Office Word","pct":95,"links":null},{"label":"Office Excel","pct":95,"links":null},{"label":"Office Power Point","pct":95,"links":null},{"label":"Google Apps Script","pct":93,"links":[]},{"label":"Artificial Intelligence","pct":92,"links":null},{"label":"GitHub (Repository)","pct":90,"links":[]}],"hb":[{"label":"Bersepeda","kind":"photo","photos":[]},{"label":"Hiking & Camping Fun","kind":"photo","photos":[]},{"label":"AI Web Developer","kind":"link","url":""}]}</script>
 
 <script>
 const TEMPLATE='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
@@ -158,11 +172,23 @@ const add=(p,t,l)=>`<button class="btn only-edit" data-act="add" data-p="${p}" d
 const del=(p,i)=>`<button class="x only-edit" data-act="del" data-p="${p}" data-i="${i}" aria-label="Hapus">×</button>`;
 const CLIP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.5l-8.5 8.5a5.5 5.5 0 01-7.8-7.8L13.5 4.5a3.7 3.7 0 015.3 5.3l-8.6 8.6a1.8 1.8 0 01-2.6-2.6l7.8-7.8"/></svg>';
 const doc=p=>{const f=get(p);return (f?`<button class="chip" data-act="view" data-p="${p}">${CLIP}<span>${esc(f.name)}</span></button><button class="x only-edit" data-act="rmf" data-p="${p}" aria-label="Hapus dokumen">×</button>`:'')+`<label class="btn only-edit">${f?'Ganti':'Unggah'} dokumen<input type="file" hidden accept="image/*,application/pdf" data-up="${p}"></label>`};
-const TPL={str:()=>'',exp:()=>({org:'',per:'',items:['']}),edu:()=>({inst:'Fakultas Ilmu Kesehatan, Universitas Muhammadiyah Jember',name:'',per:'',file:null}),tr:()=>({title:'',org:'',year:'',file:null}),leg:()=>({label:'',no:'',valid:'',file:null}),kp:()=>({label:'Poin baru',pct:80,desc:'',quote:''}),kp2:()=>({label:'Poin tambahan',pct:null,desc:'',quote:''})};
+const TPL={lnk:()=>({title:'',url:''}),sk:()=>({label:'Kemampuan baru',pct:80,links:[]}),hbp:()=>({label:'Hobi baru',kind:'photo',photos:[]}),hbl:()=>({label:'Judul',kind:'link',url:''}),str:()=>'',exp:()=>({org:'',per:'',items:['']}),edu:()=>({inst:'Fakultas Ilmu Kesehatan, Universitas Muhammadiyah Jember',name:'',per:'',file:null}),tr:()=>({title:'',org:'',year:'',file:null}),leg:()=>({label:'',no:'',valid:'',file:null}),kp:()=>({label:'Poin baru',pct:80,desc:'',quote:''}),kp2:()=>({label:'Poin tambahan',pct:null,desc:'',quote:''})};
 const list=(p,t,l)=>`<div class="tgs">${get(p).map((_,i)=>`<span class="tg">${E(p+'.'+i,l)}${del(p,i)}</span>`).join('')}${add(p,t,l)}</div>`;
 const card=(t,b,c='',id='')=>`<section class="cd ${c}"${id?` id="${id}"`:''}><h2>${t}</h2>${b}</section>`;
 const pctCtl=(i,v)=>`<span class="only-edit pc"><input type="range" min="0" max="100" data-pct="${i}" value="${v||0}" aria-label="Nilai"><input type="number" min="0" max="100" data-pct="${i}" value="${v??''}" placeholder="–" aria-label="Nilai persen">%</span>`;
 const wave=k=>{let d=k?'M0 66':'M0 40',x=0;for(;x<1600;x+=200)d+=k?` L${x+40} 66 L${x+52} 22 L${x+120} 26 L${x+132} 66 L${x+200} 66`:` L${x+60} 40 L${x+70} 33 L${x+80} 40 L${x+100} 40 L${x+108} 48 L${x+118} 6 L${x+128} 62 L${x+134} 40 L${x+160} 40 L${x+176} 30 L${x+192} 40 L${x+200} 40`;return d};
+
+const safeUrl=u=>{u=String(u||'').trim();if(!u)return'';if(!/^[a-z][a-z0-9+.-]*:/i.test(u))u='https://'+u;return /^https?:\/\//i.test(u)?u:''};
+const lnk=(t,u)=>{const h=safeUrl(u);return h?`<a class="lk" href="${esc(h)}" target="_blank" rel="noopener noreferrer">${t}</a>`:t};
+const linkList=p=>`<div class="lks">${get(p).map((x,i)=>`<div class="lr">${lnk(E(`${p}.${i}.title`,'Judul'),x.url)}<span class="only-edit mu">Link: ${E(`${p}.${i}.url`,'https://...')}</span>${del(p,i)}</div>`).join('')}${add(p,'lnk','Tambah judul & link')}</div>`;
+const skCard=(x,i)=>`<div class="cd g" data-r="sk.${i}">${del('sk',i)}<div class="gt"><b>${E(`sk.${i}.label`,'Kemampuan')}</b><span class="pv only-view">${x.pct??0}%</span></div>${pctCtl(`sk.${i}`,x.pct)}<div class="bar"><i class="fill" style="width:${x.pct||0}%"></i></div>${x.links?linkList(`sk.${i}.links`):''}</div>`;
+const hbCard=(x,i)=>x.kind==='link'
+?`<section class="cd hb">${del('hb',i)}<h2>${lnk(E(`hb.${i}.label`,'Judul'),x.url)}</h2><p class="only-edit mu">Link: ${E(`hb.${i}.url`,'https://...')}</p></section>`
+:`<section class="cd hb">${del('hb',i)}<h2>${E(`hb.${i}.label`,'Hobi')}</h2><div class="pg">${x.photos.map((u,j)=>`<figure class="sd"><img src="${esc(u)}" alt="${esc(x.label)}" data-act="viewp" data-p="hb.${i}.photos.${j}">${del(`hb.${i}.photos`,j)}</figure>`).join('')}</div>${x.photos.length?'':'<p class="only-edit mu">Belum ada foto.</p>'}<label class="btn only-edit">Unggah foto<input type="file" hidden accept="image/*" data-up="hb.${i}.photos" data-push="1"></label></section>`;
+function observeSd(){const cs=document.querySelectorAll('.hb');
+const show=c=>c.querySelectorAll('.sd').forEach(f=>f.classList.add('in'));
+if(!('IntersectionObserver' in window)){cs.forEach(show);return}
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){show(en.target);io.unobserve(en.target)}}),{threshold:.15});cs.forEach(c=>io.observe(c))}
 
 function render(){
 const s=state,p=s.profile,K=s.kp.items.map((x,i)=>[x,i]),G=K.filter(([x])=>x.pct!=null),X=K.filter(([x])=>x.pct==null);
@@ -173,7 +199,7 @@ $('app').innerHTML=`
 <div><p class="live"><i></i>${E('profile.role','Jabatan')}</p><h1>${E('profile.name','Nama lengkap')}</h1>
 <dl class="mt"><div><dt>Lahir</dt><dd>${E('profile.ttl','Kota, tanggal lahir')}</dd></div><div><dt>Domisili</dt><dd>${E('profile.dom','Alamat')}</dd></div><div><dt>Lulusan</dt><dd>${E('profile.lulus','Kampus')}</dd></div></dl></div></div>
 <div class="wv" aria-hidden="true"><div class="wvi">${[0,1].map(()=>`<svg width="1600" height="120" viewBox="0 0 1600 120"><path class="e" d="${wave(0)}"/><path class="c" transform="translate(0 52)" d="${wave(1)}"/></svg>`).join('')}</div></div></header>
-<nav class="nv" aria-label="Bagian CV"><div class="w"><a href="#profil">Profil</a><a href="#pengalaman">Pengalaman</a><a href="#pendidikan">Pendidikan</a><a href="#pelatihan">Pelatihan</a><a href="#kp">Kepribadian</a></div></nav>
+<nav class="nv" aria-label="Bagian CV"><div class="w"><a href="#profil">Profil</a><a href="#pengalaman">Pengalaman</a><a href="#pendidikan">Pendidikan</a><a href="#pelatihan">Pelatihan</a><a href="#kp">Kepribadian</a><a href="#kemampuan">Kemampuan</a><a href="#hobi">Hobi</a></div></nav>
 <main class="w bento">
 ${card('Profil',`<p class="lead">${E('about','Tulis profil singkat')}</p>`,'c8','profil')}
 ${card('Kontak',`<p class="kv"><span>No. HP</span>${E('phone','Nomor HP')}</p><p class="kv"><span>Email</span>${E('email','Email')}</p>`,'c4')}
@@ -188,25 +214,28 @@ ${card('Pelatihan & sertifikasi',s.tr.map((x,i)=>`<div class="rw">${del('tr',i)}
 </main>
 <section class="w" id="kp"><h2 class="sh">Profil kepribadian</h2>
 <div class="kh"><div class="cd scr"><div id="radar"></div></div><div class="cd"><p class="lbl">Tipe kepribadian</p><p class="tp">${E('kp.tipe','Tipe kepribadian')}</p><p>${E('kp.desc','Deskripsi')} <span class="mu">${E('kp.note','Catatan')}</span></p><div class="tgs">${s.kp.tags.map((_,i)=>`<span class="tg">${E(`kp.tags.${i}`,'Kata kunci')}${del('kp.tags',i)}</span>`).join('')}${add('kp.tags','str','Kata kunci')}</div></div></div>
-<div class="gg">${G.map(([x,i])=>`<div class="cd g" data-r="${i}">${del('kp.items',i)}<div class="gt"><b>${E(`kp.items.${i}.label`,'Aspek')}</b><span class="pv only-view">${x.pct}%</span></div>${pctCtl(i,x.pct)}<div class="bar"><i class="fill" style="width:${x.pct}%"></i></div><p>${E(`kp.items.${i}.desc`,'Deskripsi')}</p><p class="q">“${E(`kp.items.${i}.quote`,'Contoh penerapan')}”</p></div>`).join('')}</div>
+<div class="gg">${G.map(([x,i])=>`<div class="cd g" data-r="kp.items.${i}">${del('kp.items',i)}<div class="gt"><b>${E(`kp.items.${i}.label`,'Aspek')}</b><span class="pv only-view">${x.pct}%</span></div>${pctCtl(`kp.items.${i}`,x.pct)}<div class="bar"><i class="fill" style="width:${x.pct}%"></i></div><p>${E(`kp.items.${i}.desc`,'Deskripsi')}</p><p class="q">“${E(`kp.items.${i}.quote`,'Contoh penerapan')}”</p></div>`).join('')}</div>
 ${add('kp.items','kp','Tambah poin bernilai %')}
 ${X.length?'<h3 class="sh" style="font-size:1.2rem;margin-top:28px">Poin tambahan</h3>':''}
-<div class="gg">${X.map(([x,i])=>`<div class="cd g ex" data-r="${i}">${del('kp.items',i)}<div class="gt"><b>${E(`kp.items.${i}.label`,'Aspek')}</b></div>${pctCtl(i,null)}<p>${E(`kp.items.${i}.desc`,'Deskripsi')}</p><p class="q">“${E(`kp.items.${i}.quote`,'Contoh penerapan')}”</p></div>`).join('')}</div>
+<div class="gg">${X.map(([x,i])=>`<div class="cd g ex" data-r="kp.items.${i}">${del('kp.items',i)}<div class="gt"><b>${E(`kp.items.${i}.label`,'Aspek')}</b></div>${pctCtl(`kp.items.${i}`,null)}<p>${E(`kp.items.${i}.desc`,'Deskripsi')}</p><p class="q">“${E(`kp.items.${i}.quote`,'Contoh penerapan')}”</p></div>`).join('')}</div>
 ${add('kp.items','kp2','Tambah poin tambahan')}</section>
+<section class="w" id="kemampuan"><h2 class="sh">Kemampuan</h2><div class="cd scr" style="max-width:600px;margin:0 auto 16px"><div id="radar-sk"></div></div><div class="gg">${s.sk.map(skCard).join('')}</div>${add('sk','sk','Tambah kemampuan')}</section>
+<section class="w" id="hobi"><h2 class="sh">Hobi</h2><div class="hbg">${s.hb.map(hbCard).join('')}</div>${add('hb','hbp','Tambah hobi foto')}${add('hb','hbl','Tambah hobi link')}</section>
 <footer class="ft">${E('profile.name')}</footer>`;
-applyEd();redraw();
+applyEd();redraw();observeSd();
 }
 
-function redraw(){
-const it=state.kp.items.filter(x=>x.pct!=null),n=it.length,cx=180,cy=135,R=84;
-if(n<3){$('radar').innerHTML='<p class="mu" style="text-align:center">Isi minimal 3 nilai untuk menampilkan grafik.</p>';return}
+function redraw(){drawRadar('radar',state.kp.items,'kepribadian');drawRadar('radar-sk',state.sk,'kemampuan',480)}
+function drawRadar(id,items,name,W=360){
+const el=$(id);if(!el)return;const it=items.filter(x=>x.pct!=null),n=it.length,cx=W/2,cy=135,R=84,M=W>400?24:18;
+if(n<3){el.innerHTML='<p class="mu" style="text-align:center">Isi minimal 3 nilai untuk menampilkan grafik.</p>';return}
 const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/n;return [cx+r*Math.cos(a),cy+r*Math.sin(a),Math.cos(a),Math.sin(a)]};
 let g=[20,40,60,80,100].map(k=>`<polygon class="rr" points="${it.map((_,i)=>pt(i,R*k/100).slice(0,2).join(',')).join(' ')}"/>`).join('');
 g+=it.map((_,i)=>{const q=pt(i,R);return `<line class="rr" x1="${cx}" y1="${cy}" x2="${q[0]}" y2="${q[1]}"/>`}).join('');
 const dp=it.map((x,i)=>pt(i,R*x.pct/100));
 g+=`<polygon class="rd" points="${dp.map(q=>q[0]+','+q[1]).join(' ')}"/>`+dp.map(q=>`<circle cx="${q[0]}" cy="${q[1]}" r="3" fill="#fff"/>`).join('');
-g+=it.map((x,i)=>{const q=pt(i,R+12),a=q[2]>.3?'start':q[2]<-.3?'end':'middle',t=x.label.length>18?x.label.slice(0,17)+'…':x.label;return `<text class="rl" x="${q[0]}" y="${q[1]+4+q[3]*7}" text-anchor="${a}">${esc(t)}</text>`}).join('');
-$('radar').innerHTML=`<svg viewBox="0 0 360 270" role="img" aria-label="Grafik radar kepribadian" style="width:100%;display:block">${g}</svg>`;
+g+=it.map((x,i)=>{const q=pt(i,R+12),a=q[2]>.3?'start':q[2]<-.3?'end':'middle',t=x.label.length>M?x.label.slice(0,M-1)+'…':x.label;return `<text class="rl" x="${q[0]}" y="${q[1]+4+q[3]*7}" text-anchor="${a}">${esc(t)}</text>`}).join('');
+el.innerHTML=`<svg viewBox="0 0 ${W} 270" role="img" aria-label="Grafik radar ${name}" style="width:100%;display:block">${g}</svg>`;
 }
 
 function applyEd(){const on=document.body.classList.contains('editing');document.querySelectorAll('.ed').forEach(e=>e.contentEditable=on)}
@@ -220,7 +249,7 @@ let fails=0;
 
 function grant(){
 document.body.classList.add('owner');
-try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&d.base===DATA.version){state=d.data;render()}}catch(e){}}
+try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&d.base===DATA.version){state=Object.assign(clone(DATA),d.data);render()}}catch(e){}}
 
 function logout(){
 sessionStorage.removeItem('cv-cred');setEdit(false);
@@ -255,18 +284,19 @@ if(e.target.dataset.pct!==undefined&&reflow){reflow=false;render();return}
 const i=e.target.closest('input[data-up]');if(!i||!i.files[0]||!document.body.classList.contains('editing'))return;
 const f=i.files[0],p=i.dataset.up,photo=i.dataset.k==='photo';i.value='';
 try{
-if(photo){set(p,await imgData(f,600,true))}
+if(i.dataset.push){if(!f.type.startsWith('image/'))throw Error('Hanya file gambar (JPG/PNG).');get(p).push(await imgData(f,1200,false))}
+else if(photo){set(p,await imgData(f,600,true))}
 else if(f.type.startsWith('image/')){set(p,{name:f.name,type:'image/jpeg',data:await imgData(f,1600,false)})}
 else if(f.type==='application/pdf'){if(f.size>3e6)throw Error('PDF maksimal 3 MB. Kompres dulu atau unggah sebagai foto/scan JPG.');set(p,{name:f.name,type:f.type,data:await fileData(f)})}
 else throw Error('Hanya file gambar (JPG/PNG) atau PDF.');
 save();render()}catch(err){toast(err.message)}});
 
 document.addEventListener('input',e=>{const t=e.target;if(!document.body.classList.contains('editing'))return;
-if(t.dataset.pct!==undefined){const i=+t.dataset.pct,x=state.kp.items[i],v=t.value===''?null:Math.max(0,Math.min(100,Math.round(+t.value))),r=document.querySelector(`[data-r="${i}"]`);
-if((x.pct==null)!==(v==null))reflow=true;x.pct=v;
+if(t.dataset.pct!==undefined){const k=t.dataset.pct,x=get(k),v=t.value===''?null:Math.max(0,Math.min(100,Math.round(+t.value))),r=document.querySelector(`[data-r="${k}"]`);
+if(k.startsWith('kp')&&(x.pct==null)!==(v==null))reflow=true;x.pct=v;
 r.querySelectorAll('[data-pct]').forEach(n=>{if(n!==t)n.value=v??(n.type==='range'?0:'')});
 const pv=r.querySelector('.pv');if(pv)pv.textContent=v==null?'':v+'%';const fl=r.querySelector('.fill');if(fl)fl.style.width=(v||0)+'%';redraw();save();return}
-if(t.classList.contains('ed')){set(t.dataset.p,t.textContent);save()}});
+if(t.classList.contains('ed')){set(t.dataset.p,t.textContent);redraw();save()}});
 document.addEventListener('focusout',e=>{const t=e.target;if(t.classList&&t.classList.contains('ed')&&document.body.classList.contains('editing')){const v=t.textContent.trim();set(t.dataset.p,v);t.textContent=v;save()}});
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('ed')){e.preventDefault();e.target.blur()}if(e.key==='Escape'){closeDoc();$('mn').classList.remove('open')}});
 document.addEventListener('paste',e=>{if(e.target.classList&&e.target.classList.contains('ed')){e.preventDefault();document.execCommand('insertText',false,e.clipboardData.getData('text').replace(/\s*\n\s*/g,' '))}});
@@ -281,10 +311,10 @@ const open='<scr'+'ipt id="cv-data" type="application/json">',a=TEMPLATE.indexOf
 const u=URL.createObjectURL(new Blob([TEMPLATE.slice(0,a)+json+TEMPLATE.slice(b)],{type:'text/html'})),l=document.createElement('a');
 l.href=u;l.download='index.html';l.click();setTimeout(()=>URL.revokeObjectURL(u),2000);toast('index.html terunduh. Unggah ke repo GitHub untuk menayangkan.')}
 
-document.addEventListener('click',e=>{const mn=$('mn');if(!e.target.closest('#mn,#mbtn'))mn.classList.remove('open');const b=e.target.closest('[data-act]');if(!b)return;if(b.closest('#mn'))mn.classList.remove('open');const a=b.dataset.act,p=b.dataset.p,ed=document.body.classList.contains('editing');
+document.addEventListener('click',e=>{const lk=e.target.closest('a.lk');if(lk&&document.body.classList.contains('editing')){e.preventDefault();return}const mn=$('mn');if(!e.target.closest('#mn,#mbtn'))mn.classList.remove('open');const b=e.target.closest('[data-act]');if(!b)return;if(b.closest('#mn'))mn.classList.remove('open');const a=b.dataset.act,p=b.dataset.p,ed=document.body.classList.contains('editing');
 if(a==='menu'){const o=mn.classList.toggle('open');b.setAttribute('aria-expanded',o)}else if(a==='login')loginForm();else if(a==='logout')logout();
 else if(a==='edit')setEdit(true);else if(a==='done')setEdit(false);else if(a==='print')print();else if(a==='dl')dl();else if(a==='close')closeDoc();
-else if(a==='view')openDoc(get(p));
+else if(a==='view')openDoc(get(p));else if(a==='viewp')openDoc({name:'Foto',type:'image/jpeg',data:get(p)});
 else if(!ed)return;
 else if(a==='add'){get(p).push(TPL[b.dataset.t]());save();render()}
 else if(a==='del'){if(confirm('Hapus item ini?')){get(p).splice(+b.dataset.i,1);save();render()}}
@@ -293,6 +323,65 @@ else if(a==='rmphoto'){state.profile.photo='';save();render()}
 else if(a==='reset'){if(confirm('Buang semua perubahan dan kembali ke isi file ini?')){localStorage.removeItem(KEY);state=clone(DATA);render()}}});
 $('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeDoc()});
 render();
+
+/* Efek cahaya Tron: garis biru-putih berjalan acak mengikuti garis kotak latar */
+(function(){
+const cv=document.getElementById('tron');
+if(!cv||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+const ctx=cv.getContext('2d');if(!ctx)return;
+const G=44,MAXA=.5,rnd=(a,b)=>a+Math.random()*(b-a);
+const DIRS=[[1,0],[-1,0],[0,1],[0,-1]];
+let W=0,H=0,cs=[],last=0;
+function spawn(c,first){
+ c.gx=Math.floor(rnd(0,W/G));c.gy=Math.floor(rnd(0,H*.7/G));
+ const d=DIRS[Math.floor(rnd(0,4))];c.dx=d[0];c.dy=d[1];
+ c.hx=c.gx*G+.5;c.hy=c.gy*G+.5;c.rem=G;c.pts=[{x:c.hx,y:c.hy}];
+ c.L=rnd(150,280);c.speed=rnd(70,130);c.wait=first?rnd(0,3):rnd(.5,4);c.fade=0}
+function size(){
+ const r=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+ cv.width=W*r;cv.height=H*r;ctx.setTransform(r,0,0,r,0,0);
+ const n=Math.max(4,Math.min(10,Math.round(W*H/90000)));
+ cs=Array.from({length:n},()=>{const c={};spawn(c,true);return c})}
+function step(c,dt){
+ if(c.wait>0){c.wait-=dt;return}
+ c.fade=Math.min(1,c.fade+dt*1.5);
+ let d=c.speed*dt;
+ while(d>0){
+  const m=Math.min(d,c.rem);c.hx+=c.dx*m;c.hy+=c.dy*m;c.rem-=m;d-=m;
+  if(c.rem<=1e-6){
+   c.rem=G;c.hx=Math.round((c.hx-.5)/G)*G+.5;c.hy=Math.round((c.hy-.5)/G)*G+.5;
+   const r=Math.random();let nx=c.dx,ny=c.dy;
+   if(r<.2){nx=-c.dy;ny=c.dx}else if(r<.4){nx=c.dy;ny=-c.dx}
+   if(nx!==c.dx||ny!==c.dy){c.pts.push({x:c.hx,y:c.hy});c.dx=nx;c.dy=ny}}}
+ if(c.hx<-G||c.hx>W+G||c.hy<-G||c.hy>H*.85){spawn(c,false);return}
+ const path=c.pts.concat([{x:c.hx,y:c.hy}]);let tot=0;
+ for(let i=1;i<path.length;i++)tot+=Math.hypot(path[i].x-path[i-1].x,path[i].y-path[i-1].y);
+ let ex=tot-c.L;
+ while(ex>0&&c.pts.length>0){
+  const a=c.pts[0],b=c.pts.length>1?c.pts[1]:{x:c.hx,y:c.hy},s=Math.hypot(b.x-a.x,b.y-a.y);
+  if(s<=ex&&c.pts.length>1){c.pts.shift();ex-=s}
+  else{if(s>0){a.x+=(b.x-a.x)*ex/s;a.y+=(b.y-a.y)*ex/s}break}}}
+const col=(d,L,a)=>{const t=Math.min(1,d/L);return `rgba(${Math.round(255-195*t)},${Math.round(255-95*t)},255,${a})`};
+function draw(c){
+ if(c.wait>0)return;
+ const path=c.pts.concat([{x:c.hx,y:c.hy}]),L=c.L,al=d=>MAXA*c.fade*Math.pow(Math.max(0,1-d/L),1.5);
+ ctx.lineWidth=1.6;ctx.lineCap='round';ctx.lineJoin='round';
+ ctx.shadowBlur=8;ctx.shadowColor='rgba(70,160,255,.4)';
+ let dist=0;
+ for(let i=path.length-1;i>0;i--){
+  const a=path[i],b=path[i-1],len=Math.hypot(a.x-b.x,a.y-b.y);if(len<.01)continue;
+  const g=ctx.createLinearGradient(a.x,a.y,b.x,b.y);
+  g.addColorStop(0,col(dist,L,al(dist)));g.addColorStop(1,col(dist+len,L,al(dist+len)));
+  ctx.strokeStyle=g;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();dist+=len}
+ ctx.shadowBlur=10;ctx.fillStyle=`rgba(255,255,255,${.8*c.fade})`;
+ ctx.beginPath();ctx.arc(c.hx,c.hy,1.8,0,6.2832);ctx.fill();ctx.shadowBlur=0}
+function frame(t){
+ const dt=Math.min(.05,(t-last)/1000||0);last=t;
+ ctx.clearRect(0,0,W,H);
+ for(const c of cs){step(c,dt);draw(c)}
+ requestAnimationFrame(frame)}
+size();addEventListener('resize',size);requestAnimationFrame(frame);
+})();
 </script>
 </body>
 </html>
