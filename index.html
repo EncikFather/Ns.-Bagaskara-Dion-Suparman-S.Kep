@@ -4,18 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CV – Ns. Bagaskara Dion Suparman, S.Kep</title>
+<link rel="icon" href="data:,">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#050E15;--glass:rgba(14,34,46,.6);--bd:rgba(110,255,226,.16);--tx:#E4F3F0;--mut:#8CA7B0;--cy:#3DF5C8;--vi:#9A8CFF;--am:#FFC857;--fh:Sora,"Segoe UI",system-ui,sans-serif}
+:root{--bg:#07574A;--glass:linear-gradient(160deg,rgba(4,86,74,.92),rgba(30,112,68,.9));--bd:rgba(255,255,255,.26);--tx:#FFFFFF;--mut:#D6F1E9;--cy:#DFFFF1;--vi:#F3EFFF;--am:#FFC857;--fh:Sora,"Segoe UI",system-ui,sans-serif;--sbw:238px;--g1:#0AAE96;--g2:#3DBE7A;--g3:#8CC63F}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;color:var(--tx);font:15.5px/1.65 "DM Sans",system-ui,sans-serif;background:radial-gradient(900px 500px at 10% -5%,rgba(61,245,200,.15),transparent 60%),radial-gradient(800px 600px at 100% 45%,rgba(154,140,255,.14),transparent 60%),var(--bg);background-attachment:fixed}
+body{margin:0;color:var(--tx);font:15.5px/1.65 "DM Sans",system-ui,sans-serif;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 52%,var(--g3) 100%);background-attachment:fixed}
+.sh,.ft,.mt dt,.mt dd,h1{color:#fff;text-shadow:0 1px 8px rgba(0,60,50,.35)}
+.ft,.mt dt{opacity:.92}
+.live{background:rgba(8,30,38,.55)}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='90' viewBox='0 0 52 90'%3E%3Cpath d='M26 0L52 15V45L26 60L0 45V15ZM26 60V90' fill='none' stroke='rgba(61,245,200,.07)'/%3E%3C/svg%3E");background-size:52px 90px;mask-image:linear-gradient(#000,transparent 75%)}
 p{margin:0 0 8px}
 h1,h2,h3{font-family:var(--fh);margin:0;line-height:1.15;font-weight:600}
 .w{max-width:1120px;margin:0 auto;padding:0 20px}
 .mu{color:var(--mut)}
-.hero{padding-top:56px;overflow:hidden}
+.hero{padding-top:36px;overflow:hidden}
 .hg{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
 .pf{position:relative;width:176px;aspect-ratio:3/4}
 .pf::before{content:"";position:absolute;inset:-10px;border-radius:40px;border:1px solid var(--cy);box-shadow:0 0 28px rgba(61,245,200,.45),inset 0 0 18px rgba(61,245,200,.2);animation:br 5s ease-in-out infinite}
@@ -34,11 +38,34 @@ h1{font-size:clamp(2rem,5vw,3.3rem);letter-spacing:-.02em;margin:12px 0 18px}
 .wv path{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
 .wv .e{stroke:var(--cy);filter:drop-shadow(0 0 4px var(--cy))}
 .wv .c{stroke:var(--vi);opacity:.8}
-.nv{position:sticky;top:0;z-index:15;backdrop-filter:blur(14px);background:rgba(5,14,21,.72);border-bottom:1px solid var(--bd)}
-.nv .w{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
-.nv a{color:var(--mut);text-decoration:none;padding:3px 14px;border-radius:999px;white-space:nowrap}
-.nv a:hover,.nv a:focus-visible{color:var(--bg);background:var(--cy);outline:0}
-section{scroll-margin-top:60px}
+/* ===== Sidebar (gradasi seperti SIMAR) ===== */
+.sb{position:fixed;inset:0 auto 0 0;width:var(--sbw);z-index:22;display:flex;flex-direction:column;color:#fff;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 52%,var(--g3) 100%);box-shadow:4px 0 26px rgba(0,0,0,.35);transform:translateX(-100%);transition:transform .38s cubic-bezier(.4,0,.2,1)}
+body.nav-open .sb{transform:none}
+.sb .br{font-family:var(--fh);font-weight:700;font-size:1.35rem;text-align:center;padding:32px 12px 26px;letter-spacing:.04em}
+.sb .br small{display:block;font:500 .68rem "DM Sans",sans-serif;letter-spacing:.2em;opacity:.85;margin-top:6px}
+.sb nav{display:flex;flex-direction:column;gap:4px;padding:0 12px 20px;overflow-y:auto}
+.ni{display:flex;align-items:center;gap:14px;width:100%;font:inherit;font-weight:500;color:#fff;background:transparent;border:0;border-radius:12px;padding:12px 16px;cursor:pointer;text-align:left;transition:background .25s,transform .25s}
+.ni svg{width:20px;height:20px;flex:none}
+.ni:hover{background:rgba(255,255,255,.16);transform:translateX(3px)}
+.ni.on{background:rgba(255,255,255,.26);box-shadow:inset 3px 0 0 #fff}
+.ni:focus-visible{outline:3px solid var(--am)}
+.bk{position:fixed;inset:0;z-index:21;background:rgba(2,8,12,.6);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.mainc{min-height:100vh;transition:margin-left .38s cubic-bezier(.4,0,.2,1)}
+@media(min-width:821px){body.nav-open .mainc{margin-left:var(--sbw)}}
+@media(max-width:820px){body.nav-open .bk{opacity:1;visibility:visible}}
+/* ===== Topbar ===== */
+.top{position:sticky;top:0;z-index:15;display:flex;align-items:center;gap:14px;height:60px;padding:0 18px;background:#fff;color:#12232b;box-shadow:0 2px 14px rgba(0,0,0,.25)}
+.top h2{display:flex;align-items:center;gap:10px;margin:0;font-size:1.05rem;color:#12232b}
+.top h2 svg{width:20px;height:20px;color:#0a9a85}
+.hmb{border:0;background:none;color:#12232b;cursor:pointer;padding:6px;display:grid;place-items:center;border-radius:8px}
+.hmb svg{width:24px;height:24px}
+.hmb:hover{background:#e6f6f2}
+.hmb:focus-visible{outline:3px solid var(--am)}
+/* ===== Halaman (terbuka dengan smooth) ===== */
+.pp{display:none}
+.pp.act{display:block}
+.pp.act.anim{animation:opn .55s cubic-bezier(.22,.8,.3,1) backwards}
+@keyframes opn{from{opacity:0;transform:translateY(22px) scale(.985);clip-path:inset(0 0 100% 0 round 20px)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0 round 20px)}}
 .bento{display:grid;gap:16px;padding-top:28px}
 .cd{position:relative;background:var(--glass);border:1px solid var(--bd);border-radius:20px;padding:20px;backdrop-filter:blur(14px);min-width:0}
 .cd>h2{font-size:1.05rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
@@ -58,7 +85,7 @@ section{scroll-margin-top:60px}
 .lg{position:relative;display:grid;margin-bottom:14px;padding-right:24px}
 .tgs{display:flex;flex-wrap:wrap;gap:8px}
 .tg{display:inline-flex;align-items:center;padding:1px 14px;border:1px solid var(--bd);border-radius:999px;background:rgba(61,245,200,.06)}
-.sh{font-size:clamp(1.5rem,3vw,2rem);margin:44px 0 16px}
+.sh{font-size:clamp(1.5rem,3vw,2rem);margin:32px 0 16px}
 .kh{display:grid;gap:16px;align-items:center}
 .scr{position:relative;overflow:hidden}
 .scr::after{content:"";position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cy),transparent);opacity:.5;animation:sc 6s linear infinite}
@@ -87,12 +114,15 @@ body.editing .ed{outline:1px dashed rgba(61,245,200,.55);outline-offset:2px;min-
 .chip{display:inline-flex;gap:6px;align-items:center;font:inherit;font-size:.82rem;background:rgba(61,245,200,.12);color:var(--cy);border:1px solid var(--bd);border-radius:999px;padding:1px 12px;margin:6px 6px 0 0;cursor:pointer;max-width:100%}
 .chip svg{width:13px;height:13px;flex:none}
 .pc{gap:6px;align-items:center;font-size:.85rem}.pc input[type=number]{width:60px;background:#0A1A24;color:var(--tx);border:1px solid var(--bd);border-radius:6px;font:inherit;padding:1px 6px}.pc input[type=range]{width:110px;accent-color:#3DF5C8}
-.mbtn{position:absolute;top:10px;right:12px;z-index:25;width:40px;height:40px;display:grid;place-items:center;padding:0;border-radius:50%;border:1px solid var(--bd);background:rgba(10,26,36,.92);color:var(--cy);cursor:pointer;backdrop-filter:blur(14px);box-shadow:0 4px 16px rgba(0,0,0,.4)}
-.mbtn svg{width:19px;height:19px}
-.mbtn:hover{background:var(--cy);color:var(--bg)}
+/* ===== Login: lingkaran avatar pojok kanan atas ===== */
+.mbtn{position:relative;margin-left:auto;flex:none;width:42px;height:42px;display:grid;place-items:center;padding:0;border-radius:50%;border:2px solid #14b8a0;background:#eaf7f4;color:#0a8f7c;cursor:pointer;box-shadow:0 0 0 3px rgba(20,184,160,.16);transition:background .25s,color .25s,box-shadow .25s}
+.mbtn svg{width:24px;height:24px}
+.mbtn img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top}
+.mbtn:hover{background:#14b8a0;color:#fff;box-shadow:0 0 0 5px rgba(20,184,160,.25)}
 .mbtn:focus-visible,.fab:focus-visible{outline:3px solid var(--am)}
-body.editing .mbtn::after{content:"";position:absolute;top:3px;right:3px;width:9px;height:9px;border-radius:50%;background:var(--am)}
-.mn{position:absolute;top:58px;right:12px;z-index:25;display:flex;flex-direction:column;gap:2px;min-width:170px;padding:8px 10px 12px;background:rgba(10,26,36,.96);border:1px solid var(--bd);border-radius:16px;backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+body.owner .mbtn::before{content:"";position:absolute;bottom:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:#2ecc71;border:2px solid #fff}
+body.editing .mbtn::after{content:"";position:absolute;top:-3px;right:-3px;width:11px;height:11px;border-radius:50%;background:var(--am);border:2px solid #fff}
+.mn{position:fixed;top:64px;right:14px;z-index:25;display:flex;flex-direction:column;gap:2px;min-width:170px;padding:8px 10px 12px;background:rgba(10,26,36,.96);border:1px solid var(--bd);border-radius:16px;backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
 .mn.open{opacity:1;visibility:visible;transform:none}
 .mn .btn{width:100%;justify-content:center;margin:6px 0 0;padding:5px 12px}
 .fab{position:fixed;right:16px;bottom:16px;z-index:20;display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.88rem;font-weight:500;padding:10px 16px;border-radius:999px;border:1px solid var(--cy);background:rgba(10,26,36,.92);color:var(--cy);cursor:pointer;backdrop-filter:blur(14px);box-shadow:0 6px 24px rgba(0,0,0,.5)}
@@ -133,18 +163,72 @@ body.editing .only-view{display:none!important}
 .sd.in{animation:sdn .8s ease-out both}
 @keyframes sdn{from{clip-path:inset(0 0 100% 0);transform:translateY(-24px);opacity:0}to{clip-path:inset(0);transform:none;opacity:1}}
 .sd .x{position:absolute;top:6px;right:6px;margin:0}
+/* ===== Slider foto hobi: geser kiri, memudar putih ke kanan ===== */
+.sl{position:relative;overflow:hidden;border-radius:12px}
+.sl::after{content:"";position:absolute;inset:0 0 0 auto;width:34%;background:linear-gradient(90deg,rgba(255,255,255,0),#fff);pointer-events:none}
+.sl-t{display:flex;width:max-content;animation:slL linear infinite}
+.sl:hover .sl-t{animation-play-state:paused}
+@keyframes slL{to{transform:translateX(-50%)}}
+.sl-i{display:block;flex:none;width:230px;height:172px;object-fit:cover;border-radius:12px;margin-right:12px;cursor:zoom-in}
 #tron{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(#000,transparent 75%);mask-image:linear-gradient(#000,transparent 75%)}
-@media(min-width:821px){.bento{grid-template-columns:repeat(12,1fr)}.c8{grid-column:span 8}.c4{grid-column:span 4}.c6{grid-column:span 6}.kh{grid-template-columns:5fr 7fr}}
-@media(max-width:820px){.hg{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
-@media print{:root{--bg:#fff;--glass:#fff;--bd:#cfd8d6;--tx:#10222c;--mut:#4a5e66;--cy:#0f7a66;--vi:#5a4fcf}body{background:#fff}.sd{clip-path:none!important}#tron,body::before,.nv,.mbtn,.mn,.fab,.hint,.wv,.only-edit,.chip,#modal,.pf::before,.scr::after{display:none!important}.cd{backdrop-filter:none;break-inside:avoid}.fill{box-shadow:none}.rl{fill:#10222c}}
+@media(min-width:821px){.bento{grid-template-columns:repeat(12,1fr)}.c8{grid-column:span 8}.c4{grid-column:span 4}.c6{grid-column:span 6}.c12{grid-column:span 12}.kh{grid-template-columns:5fr 7fr}}
+@media(max-width:820px){.hg{grid-template-columns:1fr}.sl-i{width:190px;height:142px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.sl{overflow-x:auto}.sl-i.dup,.sl::after{display:none}}
+/* ===== Judul dokumen: klik untuk popup ===== */
+.dl{cursor:pointer;color:#FFF3B0;text-decoration:underline dotted;text-underline-offset:4px;transition:color .2s}
+.dl:hover{color:#fff}
+.dl:focus-visible{outline:3px solid var(--am);border-radius:4px}
+body.editing .dl{cursor:text;text-decoration:none}
+.ph img{cursor:zoom-in}
+/* ===== Tema seragam dengan navbar: tanpa efek menyilaukan ===== */
+body::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='90' viewBox='0 0 52 90'%3E%3Cpath d='M26 0L52 15V45L26 60L0 45V15ZM26 60V90' fill='none' stroke='rgba(255,255,255,.14)'/%3E%3C/svg%3E")}
+.sh,.ft,.mt dt,.mt dd,h1{text-shadow:0 1px 2px rgba(0,50,40,.4)}
+.live{background:rgba(5,70,60,.6);color:var(--cy)}
+.live i{background:var(--cy);box-shadow:none}
+.cd>h2::before{background:var(--cy);box-shadow:none}
+.o::before{border-color:var(--cy);box-shadow:none}
+.pf::before{border-color:#fff;box-shadow:none}
+.ph{background:linear-gradient(160deg,#0a7d6c,#2c8a4a)}
+.fill{background:linear-gradient(90deg,#fff,#BFFFD9);box-shadow:none}
+.bar{background:rgba(0,0,0,.25)}
+.rr{stroke:rgba(255,255,255,.3)}
+.rd{fill:rgba(255,255,255,.22);stroke:var(--cy);filter:none}
+.wv .e{stroke:#fff;filter:none}
+.wv .c{stroke:#E9FFD0}
+.pill{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:var(--cy)}
+.tg{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+.ei,.rw{background:rgba(255,255,255,.1)}
+.g .q{color:var(--tx);border-color:#fff}
+.ex{border-color:rgba(255,255,255,.45)}
+.ex .gt b{color:#FFF3B0}
+.pc input[type=number]{background:#06463d}
+.pc input[type=range]{accent-color:#fff}
+.btn{border-color:#fff;color:#fff}
+.btn:hover{background:#fff;color:#06614F}
+.chip{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.35)}
+.lk{color:#FFF3B0}
+.mn,.fab,.mb{background:linear-gradient(160deg,#06614F,#2c7d3f);border-color:rgba(255,255,255,.35);color:#fff}
+.fab:hover{background:#fff;color:#06614F}
+.lf input{background:#06463d;border-color:rgba(255,255,255,.3)}
+.ed:focus{background:rgba(255,255,255,.18);outline-color:#fff}
+body.editing .ed{outline-color:rgba(255,255,255,.7)}
+@media print{.dl{color:#0f7a66;text-decoration:none}.sh,.ft,.mt dt,.mt dd,h1{color:#10222c!important;text-shadow:none}.lk{color:#0f7a66}.fill{background:#0f7a66!important}.bar{background:#dfe8e6}.ex .gt b{color:#5a4fcf}.rr{stroke:#cfd8d6}.ei,.rw{background:#f4f8f7}}
+@media print{:root{--bg:#fff;--glass:#fff;--bd:#cfd8d6;--tx:#10222c;--mut:#4a5e66;--cy:#0f7a66;--vi:#5a4fcf}body{background:#fff}.sd{clip-path:none!important}#tron,body::before,.sb,.bk,.top,.mbtn,.mn,.fab,.hint,.wv,.only-edit,.chip,#modal,.pf::before,.scr::after,.sl::after,.sl-i.dup{display:none!important}.mainc{margin:0!important}.pp{display:block!important;animation:none!important}.sl{overflow:visible}.sl-t{width:auto;flex-wrap:wrap;animation:none}.cd{backdrop-filter:none;break-inside:avoid}.fill{box-shadow:none}.rl{fill:#10222c}}
 </style>
 </head>
 <body>
 <canvas id="tron" aria-hidden="true"></canvas>
+<aside class="sb" id="sb" aria-label="Navigasi CV"><div class="br">BAGASKARA<small>CURRICULUM VITAE</small></div><nav id="nvl"></nav></aside>
+<div class="bk" data-act="navclose"></div>
+<div class="mainc">
+<header class="top">
+<button class="hmb" data-act="navtoggle" aria-label="Buka atau tutup menu" aria-controls="sb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+<h2 id="tt">Home</h2>
+<button class="mbtn" id="mbtn" data-act="menu" aria-label="Menu pemilik" aria-expanded="false" aria-controls="mn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/><path d="M12 15v3M10.5 16.5h3"/></svg></button>
+</header>
 <p class="hint">Mode edit: klik teks untuk mengubah. Perubahan tersimpan di browser ini. Klik “Unduh HTML”, lalu ganti index.html di repo GitHub agar tampil untuk semua pengunjung.</p>
 <div id="app"></div>
-<button class="mbtn" id="mbtn" data-act="menu" aria-label="Menu pemilik" aria-expanded="false" aria-controls="mn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></button>
+</div>
 <nav class="mn" id="mn" aria-label="Menu pemilik">
 <button class="btn only-guest" data-act="login">Masuk pemilik</button>
 <button class="btn only-owner only-view" data-act="edit">Edit CV</button>
@@ -190,7 +274,7 @@ function applyDrive(st){
  st.profile.photo=imgUrl(DRIVE.fotoProfil,600);
  [['legalitas','leg','label'],['pendidikan','edu','name'],['pelatihan','tr','title']].forEach(([k,sec,nm])=>{const a=DRIVE[k]||[];st[sec].forEach((x,i)=>{if(i<a.length)x.file=docObj(a[i],x[nm])})});
  (DRIVE.hobi||[]).forEach((a,i)=>{const h=st.hb[i];if(h&&h.kind==='photo'&&Array.isArray(a))h.photos=a.map(u=>imgUrl(u,1200)).filter(Boolean)})}
-let state=clone(DATA),reflow=false;applyDrive(state);
+let state=clone(DATA),reflow=false,cur='home';applyDrive(state);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const get=p=>p.split('.').reduce((o,k)=>o?.[k],state);
 const set=(p,v)=>{const k=p.split('.'),l=k.pop();k.reduce((o,x)=>o[x],state)[l]=v};
@@ -198,20 +282,43 @@ const E=(p,ph='',c='')=>`<span class="ed ${c}" data-p="${p}" data-ph="${esc(ph)}
 const add=(p,t,l)=>`<button class="btn only-edit" data-act="add" data-p="${p}" data-t="${t}">+ ${l}</button>`;
 const del=(p,i)=>`<button class="x only-edit" data-act="del" data-p="${p}" data-i="${i}" aria-label="Hapus">×</button>`;
 const CLIP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.5l-8.5 8.5a5.5 5.5 0 01-7.8-7.8L13.5 4.5a3.7 3.7 0 015.3 5.3l-8.6 8.6a1.8 1.8 0 01-2.6-2.6l7.8-7.8"/></svg>';
-const doc=p=>{const f=get(p);return f?`<button class="chip" data-act="view" data-p="${p}">${CLIP}<span>${esc(f.name)}</span></button>`:''};
-const TPL={lnk:()=>({title:'',url:''}),sk:()=>({label:'Kemampuan baru',pct:80,links:[]}),hbp:()=>({label:'Hobi baru',kind:'photo',photos:[]}),hbl:()=>({label:'Judul',kind:'link',url:''}),str:()=>'',exp:()=>({org:'',per:'',items:['']}),edu:()=>({inst:'Fakultas Ilmu Kesehatan, Universitas Muhammadiyah Jember',name:'',per:'',file:null}),tr:()=>({title:'',org:'',year:'',file:null}),leg:()=>({label:'',no:'',valid:'',file:null}),kp:()=>({label:'Poin baru',pct:80,desc:'',quote:''}),kp2:()=>({label:'Poin tambahan',pct:null,desc:'',quote:''})};
+const doc=p=>''; /* dokumen kini dibuka lewat klik pada judul */
+const TPL={lnk:()=>({title:'',url:''}),sk:()=>({label:'Kemampuan baru',pct:80,links:[]}),hbp:()=>({label:'Hobi baru',kind:'photo',photos:[]}),hbl:()=>({label:'Judul',kind:'link',url:'',links:[]}),str:()=>'',exp:()=>({org:'',per:'',items:['']}),edu:()=>({inst:'Fakultas Ilmu Kesehatan, Universitas Muhammadiyah Jember',name:'',per:'',file:null}),tr:()=>({title:'',org:'',year:'',file:null}),leg:()=>({label:'',no:'',valid:'',file:null}),kp:()=>({label:'Poin baru',pct:80,desc:'',quote:''}),kp2:()=>({label:'Poin tambahan',pct:null,desc:'',quote:''})};
 const list=(p,t,l)=>`<div class="tgs">${get(p).map((_,i)=>`<span class="tg">${E(p+'.'+i,l)}${del(p,i)}</span>`).join('')}${add(p,t,l)}</div>`;
 const card=(t,b,c='',id='')=>`<section class="cd ${c}"${id?` id="${id}"`:''}><h2>${t}</h2>${b}</section>`;
 const pctCtl=(i,v)=>`<span class="only-edit pc"><input type="range" min="0" max="100" data-pct="${i}" value="${v||0}" aria-label="Nilai"><input type="number" min="0" max="100" data-pct="${i}" value="${v??''}" placeholder="–" aria-label="Nilai persen">%</span>`;
 const wave=k=>{let d=k?'M0 66':'M0 40',x=0;for(;x<1600;x+=200)d+=k?` L${x+40} 66 L${x+52} 22 L${x+120} 26 L${x+132} 66 L${x+200} 66`:` L${x+60} 40 L${x+70} 33 L${x+80} 40 L${x+100} 40 L${x+108} 48 L${x+118} 6 L${x+128} 62 L${x+134} 40 L${x+160} 40 L${x+176} 30 L${x+192} 40 L${x+200} 40`;return d};
 
+/* Navigasi sidebar: ikon disesuaikan dengan judul menu */
+const IC={
+home:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/>',
+profil:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>',
+pengalaman:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18"/>',
+pendidikan:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5M22 9v6"/>',
+pelatihan:'<circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/>',
+kp:'<circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2.5 4 2.5S16 14 16 14M9 9.5h.01M15 9.5h.01"/>',
+kemampuan:'<path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/>',
+hobi:'<path d="M12 21s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 6-8 11-8 11z"/>'};
+const NAV=[['home','Home'],['profil','Profil'],['pengalaman','Pengalaman'],['pendidikan','Pendidikan'],['pelatihan','Pelatihan'],['kp','Kepribadian'],['kemampuan','Kemampuan'],['hobi','Hobi']];
+const ico=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[k]}</svg>`;
+function buildNav(){$('nvl').innerHTML=NAV.map(([k,t])=>`<button class="ni" data-nav="${k}">${ico(k)}<span>${t}</span></button>`).join('')}
+function setNav(on){document.body.classList.toggle('nav-open',on);const h=document.querySelector('.hmb');if(h)h.setAttribute('aria-expanded',on)}
+function show(k,still){cur=k;
+document.querySelectorAll('.pp').forEach(p=>{p.classList.remove('anim');const on=p.id==='p-'+k;p.classList.toggle('act',on);if(on&&!still){void p.offsetWidth;p.classList.add('anim')}});
+document.querySelectorAll('.ni').forEach(b=>{const on=b.dataset.nav===k;b.classList.toggle('on',on);on?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current')});
+const n=NAV.find(x=>x[0]===k);$('tt').innerHTML=ico(k)+'<span>'+n[1]+'</span>';
+if(!still){scrollTo({top:0,behavior:'smooth'});if(innerWidth<=820)setNav(false)}}
+
 const safeUrl=u=>{u=String(u||'').trim();if(!u)return'';if(!/^[a-z][a-z0-9+.-]*:/i.test(u))u='https://'+u;return /^https?:\/\//i.test(u)?u:''};
+const dt=(fp,inner)=>get(fp)?`<span class="dl" tabindex="0" role="button" data-act="view" data-p="${fp}" title="Klik untuk melihat dokumen">${inner}</span>`:inner;
 const lnk=(t,u)=>{const h=safeUrl(u);return h?`<a class="lk" href="${esc(h)}" target="_blank" rel="noopener noreferrer">${t}</a>`:t};
 const linkList=p=>`<div class="lks">${get(p).map((x,i)=>`<div class="lr">${lnk(E(`${p}.${i}.title`,'Judul'),x.url)}<span class="only-edit mu">Link: ${E(`${p}.${i}.url`,'https://...')}</span>${del(p,i)}</div>`).join('')}${add(p,'lnk','Tambah judul & link')}</div>`;
 const skCard=(x,i)=>`<div class="cd g" data-r="sk.${i}">${del('sk',i)}<div class="gt"><b>${E(`sk.${i}.label`,'Kemampuan')}</b><span class="pv only-view">${x.pct??0}%</span></div>${pctCtl(`sk.${i}`,x.pct)}<div class="bar"><i class="fill" style="width:${x.pct||0}%"></i></div>${x.links?linkList(`sk.${i}.links`):''}</div>`;
-const hbCard=(x,i)=>x.kind==='link'
-?`<section class="cd hb">${del('hb',i)}<h2>${lnk(E(`hb.${i}.label`,'Judul'),x.url)}</h2><p class="only-edit mu">Link: ${E(`hb.${i}.url`,'https://...')}</p></section>`
-:`<section class="cd hb">${del('hb',i)}<h2>${E(`hb.${i}.label`,'Hobi')}</h2><div class="pg">${x.photos.map((u,j)=>`<figure class="sd"><img src="${esc(u)}" alt="${esc(x.label)}" referrerpolicy="no-referrer" data-act="viewp" data-p="hb.${i}.photos.${j}"></figure>`).join('')}</div><p class="only-edit mu">Foto diisi lewat link Google Drive di bagian DRIVE pada file index.html.</p></section>`;
+const slide=(x,i)=>{const n=x.photos.length,im=(u,j,d)=>`<img class="sl-i${d?' dup':''}" src="${esc(u)}" alt="${esc(x.label)}" referrerpolicy="no-referrer" ${d?'aria-hidden="true" ':''}data-act="viewp" data-p="hb.${i}.photos.${j}">`;
+return `<div class="sl"><div class="sl-t" style="animation-duration:${Math.max(8,n*4)}s">${x.photos.map((u,j)=>im(u,j)).join('')}${x.photos.map((u,j)=>im(u,j,1)).join('')}</div></div>`};
+const hbCard=(x,i)=>{if(x.kind==='link'){if(!x.links)x.links=[];
+return `<section class="cd hb">${del('hb',i)}<h2>${lnk(E(`hb.${i}.label`,'Judul'),x.url)}</h2><p class="only-edit mu">Link: ${E(`hb.${i}.url`,'https://...')}</p>${linkList(`hb.${i}.links`)}</section>`}
+return `<section class="cd hb">${del('hb',i)}<h2>${E(`hb.${i}.label`,'Hobi')}</h2>${x.photos.length>1?slide(x,i):`<div class="pg">${x.photos.map((u,j)=>`<figure class="sd"><img src="${esc(u)}" alt="${esc(x.label)}" referrerpolicy="no-referrer" data-act="viewp" data-p="hb.${i}.photos.${j}"></figure>`).join('')}</div>`}<p class="only-edit mu">Foto diisi lewat link Google Drive di bagian DRIVE pada file index.html.</p></section>`};
 function observeSd(){const cs=document.querySelectorAll('.hb');
 const show=c=>c.querySelectorAll('.sd').forEach(f=>f.classList.add('in'));
 if(!('IntersectionObserver' in window)){cs.forEach(show);return}
@@ -219,35 +326,36 @@ const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){show
 
 function render(){
 const s=state,p=s.profile,K=s.kp.items.map((x,i)=>[x,i]),G=K.filter(([x])=>x.pct!=null),X=K.filter(([x])=>x.pct==null);
-$('app').innerHTML=`
-<header class="hero" id="top"><div class="w hg">
-<div class="pf"><div class="ph">${p.photo?`<img src="${p.photo}" alt="Foto profil" referrerpolicy="no-referrer">`:'<svg viewBox="0 0 110 147" aria-label="Foto 3x4"><circle cx="55" cy="58" r="24" fill="rgba(61,245,200,.25)"/><path d="M12 128c0-30 18-42 43-42s43 12 43 42z" fill="rgba(61,245,200,.25)"/><text x="55" y="140" text-anchor="middle" font-size="9" fill="#8CA7B0">Foto 3x4</text></svg>'}</div></div>
+const P=(k,b)=>`<div class="pp${cur===k?' act':''}" id="p-${k}">${b}</div>`;
+$('app').innerHTML=
+P('home',`<header class="hero" id="top"><div class="w hg">
+<div class="pf"><div class="ph">${p.photo?`<img src="${p.photo}" alt="Foto profil" referrerpolicy="no-referrer" data-act="viewp" data-p="profile.photo">`:'<svg viewBox="0 0 110 147" aria-label="Foto 3x4"><circle cx="55" cy="58" r="24" fill="rgba(61,245,200,.25)"/><path d="M12 128c0-30 18-42 43-42s43 12 43 42z" fill="rgba(61,245,200,.25)"/><text x="55" y="140" text-anchor="middle" font-size="9" fill="#8CA7B0">Foto 3x4</text></svg>'}</div></div>
 <div><p class="live"><i></i>${E('profile.role','Jabatan')}</p><h1>${E('profile.name','Nama lengkap')}</h1>
 <dl class="mt"><div><dt>Lahir</dt><dd>${E('profile.ttl','Kota, tanggal lahir')}</dd></div><div><dt>Domisili</dt><dd>${E('profile.dom','Alamat')}</dd></div><div><dt>Lulusan</dt><dd>${E('profile.lulus','Kampus')}</dd></div></dl></div></div>
-<div class="wv" aria-hidden="true"><div class="wvi">${[0,1].map(()=>`<svg width="1600" height="120" viewBox="0 0 1600 120"><path class="e" d="${wave(0)}"/><path class="c" transform="translate(0 52)" d="${wave(1)}"/></svg>`).join('')}</div></div></header>
-<nav class="nv" aria-label="Bagian CV"><div class="w"><a href="#profil">Profil</a><a href="#pengalaman">Pengalaman</a><a href="#pendidikan">Pendidikan</a><a href="#pelatihan">Pelatihan</a><a href="#kp">Kepribadian</a><a href="#kemampuan">Kemampuan</a><a href="#hobi">Hobi</a></div></nav>
-<main class="w bento">
-${card('Profil',`<p class="lead">${E('about','Tulis profil singkat')}</p>`,'c8','profil')}
+<div class="wv" aria-hidden="true"><div class="wvi">${[0,1].map(()=>`<svg width="1600" height="120" viewBox="0 0 1600 120"><path class="e" d="${wave(0)}"/><path class="c" transform="translate(0 52)" d="${wave(1)}"/></svg>`).join('')}</div></div></header>`)+
+P('profil',`<main class="w bento">
+${card('Profil',`<p class="lead">${E('about','Tulis profil singkat')}</p>`,'c8')}
 ${card('Kontak',`<p class="kv"><span>No. HP</span>${E('phone','Nomor HP')}</p><p class="kv"><span>Email</span>${E('email','Email')}</p>`,'c4')}
-${card('Pengalaman kerja',`<div class="tl">${s.exp.map((x,i)=>`<div class="o">${del('exp',i)}<div class="oh"><b>${E(`exp.${i}.org`,'Instansi')}</b><span class="pill">${E(`exp.${i}.per`,'Periode')}</span></div><ul class="bl">${x.items.map((_,j)=>`<li>${E(`exp.${i}.items.${j}`,'Tugas / jabatan')}${del(`exp.${i}.items`,j)}</li>`).join('')}</ul>${add(`exp.${i}.items`,'str','Tugas')}</div>`).join('')}</div>`+add('exp','exp','Tambah instansi'),'c8','pengalaman')}
-<div class="c4 stack">
-${card('Legalitas',s.leg.map((x,i)=>`<div class="lg">${del('leg',i)}<b>${E(`leg.${i}.label`,'Jenis')}</b><span class="mu">No. ${E(`leg.${i}.no`,'belum diisi')}</span><span class="mu">Berlaku: ${E(`leg.${i}.valid`,'belum diisi')}</span><div>${doc(`leg.${i}.file`)}</div></div>`).join('')+add('leg','leg','Tambah legalitas'))}
-${card('Kompetensi klinis',list('komp','str','Kompetensi'))}
-${card('Soft skill',list('soft','str','Soft skill'))}
-${card('Bahasa',list('bhs','str','Bahasa'))}</div>
-${card('Pendidikan',s.edu.map((x,i)=>`<div class="ei">${del('edu',i)}<b>${E(`edu.${i}.name`,'Program studi')}</b><span class="mu">${E(`edu.${i}.inst`,'Institusi')}</span><span class="pill">${E(`edu.${i}.per`,'Tahun')}</span><div>${doc(`edu.${i}.file`)}</div></div>`).join('')+add('edu','edu','Tambah pendidikan'),'c6','pendidikan')}
-${card('Pelatihan & sertifikasi',s.tr.map((x,i)=>`<div class="rw">${del('tr',i)}<b>${E(`tr.${i}.title`,'Nama pelatihan')}</b><span class="mu">${E(`tr.${i}.org`,'Penyelenggara')}</span><span class="pill">${E(`tr.${i}.year`,'Tahun')}</span><div>${doc(`tr.${i}.file`)}</div></div>`).join('')+add('tr','tr','Tambah pelatihan'),'c6','pelatihan')}
-</main>
-<section class="w" id="kp"><h2 class="sh">Profil kepribadian</h2>
+${card('Legalitas',s.leg.map((x,i)=>`<div class="lg">${del('leg',i)}<b>${dt(`leg.${i}.file`,E(`leg.${i}.label`,'Jenis'))}</b><span class="mu">No. ${E(`leg.${i}.no`,'belum diisi')}</span><span class="mu">Berlaku: ${E(`leg.${i}.valid`,'belum diisi')}</span><div>${doc(`leg.${i}.file`)}</div></div>`).join('')+add('leg','leg','Tambah legalitas'),'c6')}
+${card('Kompetensi klinis',list('komp','str','Kompetensi'),'c6')}
+${card('Soft skill',list('soft','str','Soft skill'),'c6')}
+${card('Bahasa',list('bhs','str','Bahasa'),'c6')}
+</main>`)+
+P('pengalaman',`<main class="w bento">${card('Pengalaman kerja',`<div class="tl">${s.exp.map((x,i)=>`<div class="o">${del('exp',i)}<div class="oh"><b>${E(`exp.${i}.org`,'Instansi')}</b><span class="pill">${E(`exp.${i}.per`,'Periode')}</span></div><ul class="bl">${x.items.map((_,j)=>`<li>${E(`exp.${i}.items.${j}`,'Tugas / jabatan')}${del(`exp.${i}.items`,j)}</li>`).join('')}</ul>${add(`exp.${i}.items`,'str','Tugas')}</div>`).join('')}</div>`+add('exp','exp','Tambah instansi'),'c12')}</main>`)+
+P('pendidikan',`<main class="w bento">${card('Pendidikan',s.edu.map((x,i)=>`<div class="ei">${del('edu',i)}<b>${dt(`edu.${i}.file`,E(`edu.${i}.name`,'Program studi'))}</b><span class="mu">${E(`edu.${i}.inst`,'Institusi')}</span><span class="pill">${E(`edu.${i}.per`,'Tahun')}</span><div>${doc(`edu.${i}.file`)}</div></div>`).join('')+add('edu','edu','Tambah pendidikan'),'c12')}</main>`)+
+P('pelatihan',`<main class="w bento">${card('Pelatihan & sertifikasi',s.tr.map((x,i)=>`<div class="rw">${del('tr',i)}<b>${dt(`tr.${i}.file`,E(`tr.${i}.title`,'Nama pelatihan'))}</b><span class="mu">${E(`tr.${i}.org`,'Penyelenggara')}</span><span class="pill">${E(`tr.${i}.year`,'Tahun')}</span><div>${doc(`tr.${i}.file`)}</div></div>`).join('')+add('tr','tr','Tambah pelatihan'),'c12')}</main>`)+
+P('kp',`<div class="w"><h2 class="sh">Profil kepribadian</h2>
 <div class="kh"><div class="cd scr"><div id="radar"></div></div><div class="cd"><p class="lbl">Tipe kepribadian</p><p class="tp">${E('kp.tipe','Tipe kepribadian')}</p><p>${E('kp.desc','Deskripsi')} <span class="mu">${E('kp.note','Catatan')}</span></p><div class="tgs">${s.kp.tags.map((_,i)=>`<span class="tg">${E(`kp.tags.${i}`,'Kata kunci')}${del('kp.tags',i)}</span>`).join('')}${add('kp.tags','str','Kata kunci')}</div></div></div>
 <div class="gg">${G.map(([x,i])=>`<div class="cd g" data-r="kp.items.${i}">${del('kp.items',i)}<div class="gt"><b>${E(`kp.items.${i}.label`,'Aspek')}</b><span class="pv only-view">${x.pct}%</span></div>${pctCtl(`kp.items.${i}`,x.pct)}<div class="bar"><i class="fill" style="width:${x.pct}%"></i></div><p>${E(`kp.items.${i}.desc`,'Deskripsi')}</p><p class="q">“${E(`kp.items.${i}.quote`,'Contoh penerapan')}”</p></div>`).join('')}</div>
 ${add('kp.items','kp','Tambah poin bernilai %')}
 ${X.length?'<h3 class="sh" style="font-size:1.2rem;margin-top:28px">Poin tambahan</h3>':''}
 <div class="gg">${X.map(([x,i])=>`<div class="cd g ex" data-r="kp.items.${i}">${del('kp.items',i)}<div class="gt"><b>${E(`kp.items.${i}.label`,'Aspek')}</b></div>${pctCtl(`kp.items.${i}`,null)}<p>${E(`kp.items.${i}.desc`,'Deskripsi')}</p><p class="q">“${E(`kp.items.${i}.quote`,'Contoh penerapan')}”</p></div>`).join('')}</div>
-${add('kp.items','kp2','Tambah poin tambahan')}</section>
-<section class="w" id="kemampuan"><h2 class="sh">Kemampuan</h2><div class="cd scr" style="max-width:600px;margin:0 auto 16px"><div id="radar-sk"></div></div><div class="gg">${s.sk.map(skCard).join('')}</div>${add('sk','sk','Tambah kemampuan')}</section>
-<section class="w" id="hobi"><h2 class="sh">Hobi</h2><div class="hbg">${s.hb.map(hbCard).join('')}</div>${add('hb','hbp','Tambah hobi foto')}${add('hb','hbl','Tambah hobi link')}</section>
-<footer class="ft">${E('profile.name')}</footer>`;
+${add('kp.items','kp2','Tambah poin tambahan')}</div>`)+
+P('kemampuan',`<div class="w"><h2 class="sh">Kemampuan</h2><div class="cd scr" style="max-width:600px;margin:0 auto 16px"><div id="radar-sk"></div></div><div class="gg">${s.sk.map(skCard).join('')}</div>${add('sk','sk','Tambah kemampuan')}</div>`)+
+P('hobi',`<div class="w"><h2 class="sh">Hobi</h2><div class="hbg">${s.hb.map(hbCard).join('')}</div>${add('hb','hbp','Tambah hobi foto')}${add('hb','hbl','Tambah hobi link')}</div>`)+
+`<footer class="ft">${E('profile.name')}</footer>`;
+const mb=$('mbtn');mb.querySelector('img')?.remove();
+if(p.photo){const im=new Image();im.referrerPolicy='no-referrer';im.alt='';im.onerror=()=>im.remove();im.src=p.photo;mb.appendChild(im)}
 applyEd();redraw();observeSd();
 }
 
@@ -268,7 +376,9 @@ function applyEd(){const on=document.body.classList.contains('editing');document
 let st;function save(){clearTimeout(st);st=setTimeout(()=>{try{localStorage.setItem(KEY,JSON.stringify({base:DATA.version,data:state}))}catch(e){toast('Penyimpanan browser penuh. Klik Unduh HTML agar perubahan tidak hilang.')}},400)}
 let tt;function toast(m){const t=$('toast');t.textContent=m;clearTimeout(tt);tt=setTimeout(()=>t.textContent='',6000)}
 
-/* Akses pemilik: login manual username + password (hash SHA-256 dari "username:password") */
+/* Akses pemilik: login manual username + password.
+   CATATAN: ini hanya pengaman tampilan. Username/password terlihat di source halaman,
+   jadi jangan gunakan password yang sama dengan akun penting. Ganti nilai di bawah. */
 const USERNAME='bagaskara';
 const PASSWORD='GantiPassword#2026';
 let fails=0;
@@ -324,7 +434,7 @@ r.querySelectorAll('[data-pct]').forEach(n=>{if(n!==t)n.value=v??(n.type==='rang
 const pv=r.querySelector('.pv');if(pv)pv.textContent=v==null?'':v+'%';const fl=r.querySelector('.fill');if(fl)fl.style.width=(v||0)+'%';redraw();save();return}
 if(t.classList.contains('ed')){set(t.dataset.p,t.textContent);redraw();save()}});
 document.addEventListener('focusout',e=>{const t=e.target;if(t.classList&&t.classList.contains('ed')&&document.body.classList.contains('editing')){const v=t.textContent.trim();set(t.dataset.p,v);t.textContent=v;save()}});
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('ed')){e.preventDefault();e.target.blur()}if(e.key==='Escape'){closeDoc();$('mn').classList.remove('open')}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('dl')&&!document.body.classList.contains('editing')){e.preventDefault();e.target.click();return}if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('ed')){e.preventDefault();e.target.blur()}if(e.key==='Escape'){closeDoc();$('mn').classList.remove('open')}});
 document.addEventListener('paste',e=>{if(e.target.classList&&e.target.classList.contains('ed')){e.preventDefault();document.execCommand('insertText',false,e.clipboardData.getData('text').replace(/\s*\n\s*/g,' '))}});
 
 async function openDoc(f){const ext=/^https?:/i.test(f.data),u=ext?f.data:URL.createObjectURL(await (await fetch(f.data)).blob()),m=$('modal');
@@ -337,10 +447,12 @@ const open='<scr'+'ipt id="cv-data" type="application/json">',a=TEMPLATE.indexOf
 const u=URL.createObjectURL(new Blob([TEMPLATE.slice(0,a)+json+TEMPLATE.slice(b)],{type:'text/html'})),l=document.createElement('a');
 l.href=u;l.download='index.html';l.click();setTimeout(()=>URL.revokeObjectURL(u),2000);toast('index.html terunduh. Unggah ke repo GitHub untuk menayangkan.')}
 
-document.addEventListener('click',e=>{const lk=e.target.closest('a.lk');if(lk&&document.body.classList.contains('editing')){e.preventDefault();return}const mn=$('mn');if(!e.target.closest('#mn,#mbtn'))mn.classList.remove('open');const b=e.target.closest('[data-act]');if(!b)return;if(b.closest('#mn'))mn.classList.remove('open');const a=b.dataset.act,p=b.dataset.p,ed=document.body.classList.contains('editing');
-if(a==='menu'){const o=mn.classList.toggle('open');b.setAttribute('aria-expanded',o)}else if(a==='login')loginForm();else if(a==='logout')logout();
+document.addEventListener('click',e=>{const lk=e.target.closest('a.lk');if(lk&&document.body.classList.contains('editing')){e.preventDefault();return}const mn=$('mn');if(!e.target.closest('#mn,#mbtn'))mn.classList.remove('open');
+const nb=e.target.closest('[data-nav]');if(nb){show(nb.dataset.nav);return}
+const b=e.target.closest('[data-act]');if(!b)return;if(b.closest('#mn'))mn.classList.remove('open');const a=b.dataset.act,p=b.dataset.p,ed=document.body.classList.contains('editing');
+if(a==='menu'){const o=mn.classList.toggle('open');b.setAttribute('aria-expanded',o)}else if(a==='navtoggle')setNav(!document.body.classList.contains('nav-open'));else if(a==='navclose')setNav(false);else if(a==='login')loginForm();else if(a==='logout')logout();
 else if(a==='edit')setEdit(true);else if(a==='done')setEdit(false);else if(a==='print')print();else if(a==='dl')dl();else if(a==='close')closeDoc();
-else if(a==='view')openDoc(get(p));else if(a==='viewp')openDoc({name:'Foto',type:'image/jpeg',data:get(p)});
+else if(a==='view'){if(!ed)openDoc(get(p))}else if(a==='viewp')openDoc({name:'Foto',type:'image/jpeg',data:get(p)});
 else if(!ed)return;
 else if(a==='add'){get(p).push(TPL[b.dataset.t]());save();render()}
 else if(a==='del'){if(confirm('Hapus item ini?')){get(p).splice(+b.dataset.i,1);save();render()}}
@@ -348,7 +460,8 @@ else if(a==='rmf'){set(p,null);save();render()}
 else if(a==='rmphoto'){state.profile.photo='';save();render()}
 else if(a==='reset'){if(confirm('Buang semua perubahan dan kembali ke isi file ini?')){localStorage.removeItem(KEY);state=clone(DATA);applyDrive(state);render()}}});
 $('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeDoc()});
-render();
+buildNav();if(innerWidth>820)setNav(true);
+render();show('home',true);
 
 /* Efek cahaya Tron: garis biru-putih berjalan acak mengikuti garis kotak latar */
 (function(){
